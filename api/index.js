@@ -86,13 +86,12 @@ function App() {
   }, /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null))));
 }
 
-// route:/Users/seathomp1/Documents/diser/app/routes/index.tsx
-var routes_exports = {};
-__export(routes_exports, {
-  default: () => Index
+// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
+var contribute_exports = {};
+__export(contribute_exports, {
+  default: () => Contribute
 });
-var import_react7 = require("react");
-var import_Drawer = __toESM(require("@mui/material/Drawer"));
+var import_Box2 = __toESM(require("@mui/material/Box"));
 
 // app/components/Header.tsx
 var React2 = __toESM(require("react"));
@@ -108,7 +107,7 @@ var import_Avatar = __toESM(require("@mui/material/Avatar"));
 var import_Button = __toESM(require("@mui/material/Button"));
 var import_Tooltip = __toESM(require("@mui/material/Tooltip"));
 var import_MenuItem = __toESM(require("@mui/material/MenuItem"));
-var pages = ["Explore", "Contribute", "About"];
+var import_Link = __toESM(require("@mui/material/Link"));
 var settings = ["Profile", "Account", "Dashboard", "Logout"];
 var Header = () => {
   const [anchorElNav, setAnchorElNav] = React2.useState(null);
@@ -162,23 +161,43 @@ var Header = () => {
     sx: {
       display: { xs: "block", md: "none" }
     }
-  }, pages.map((page) => /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
-    key: page,
+  }, /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
     onClick: handleCloseNavMenu
   }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
     textAlign: "center"
-  }, page))))), /* @__PURE__ */ React2.createElement(import_Typography.default, {
+  }, "Explore")), /* @__PURE__ */ React2.createElement(import_MenuItem.default, null, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/contribute",
+    sx: { textDecoration: "none" }
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center",
+    sx: { color: "black" }
+  }, "Contribute"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
+    onClick: handleCloseNavMenu
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center"
+  }, "About")))), /* @__PURE__ */ React2.createElement(import_Typography.default, {
     variant: "h6",
     noWrap: true,
     component: "div",
     sx: { flexGrow: 1, display: { xs: "flex", md: "none" } }
   }, "DISER"), /* @__PURE__ */ React2.createElement(import_Box.default, {
     sx: { flexGrow: 1, display: { xs: "none", md: "flex" } }
-  }, pages.map((page) => /* @__PURE__ */ React2.createElement(import_Button.default, {
-    key: page,
+  }, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/",
+    component: import_Button.default
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    sx: { color: "white", fontSize: "14px", fontWeight: 500 },
+    textAlign: "center"
+  }, "Explore")), /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/contribute",
+    component: import_Button.default
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    sx: { color: "white", fontSize: "14px", fontWeight: 500 },
+    textAlign: "center"
+  }, "Contribute")), /* @__PURE__ */ React2.createElement(import_Button.default, {
     onClick: handleCloseNavMenu,
     sx: { my: 2, color: "white", display: "block" }
-  }, page))), /* @__PURE__ */ React2.createElement(import_Box.default, {
+  }, "About")), /* @__PURE__ */ React2.createElement(import_Box.default, {
     sx: { flexGrow: 0 }
   }, /* @__PURE__ */ React2.createElement(import_Tooltip.default, {
     title: "Open settings"
@@ -210,6 +229,42 @@ var Header = () => {
     textAlign: "center"
   }, setting))))))));
 };
+
+// app/components/FileUpload.tsx
+var import_Button2 = __toESM(require("@mui/material/Button"));
+var import_Add = __toESM(require("@mui/icons-material/Add"));
+var FileUpload = () => {
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "App"
+  }, /* @__PURE__ */ React.createElement(import_Button2.default, {
+    variant: "contained",
+    component: "label",
+    color: "primary"
+  }, " ", /* @__PURE__ */ React.createElement(import_Add.default, null), " Upload a file", /* @__PURE__ */ React.createElement("input", {
+    type: "file",
+    hidden: true
+  })));
+};
+
+// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
+function Contribute() {
+  return /* @__PURE__ */ React.createElement("div", {
+    style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
+  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box2.default, {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "90vh"
+  }, /* @__PURE__ */ React.createElement(FileUpload, null)));
+}
+
+// route:/Users/seathomp1/Documents/diser/app/routes/index.tsx
+var routes_exports = {};
+__export(routes_exports, {
+  default: () => Index
+});
+var import_react7 = require("react");
+var import_Drawer = __toESM(require("@mui/material/Drawer"));
 
 // app/components/GoogleMap.tsx
 var import_react6 = require("react");
@@ -386,7 +441,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "ff8eefa1", "entry": { "module": "/build/entry.client-FESB5QBT.js", "imports": ["/build/_shared/chunk-EUVPB5RJ.js", "/build/_shared/chunk-DYVJNLVO.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-KB67QHY4.js", "imports": ["/build/_shared/chunk-4MFQ6A65.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-FUCP3JW6.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FF8EEFA1.js" };
+var assets_manifest_default = { "version": "5406f063", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-ISPGIFIH.js", "imports": ["/build/_shared/chunk-X2JWR37W.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-V7AL66WI.js", "imports": ["/build/_shared/chunk-X2JWR37W.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-5406F063.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
@@ -398,6 +453,14 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
+  },
+  "routes/contribute": {
+    id: "routes/contribute",
+    parentId: "root",
+    path: "contribute",
+    index: void 0,
+    caseSensitive: void 0,
+    module: contribute_exports
   },
   "routes/index": {
     id: "routes/index",

@@ -12,6 +12,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+// import { Link } from '@remix-run/react';
+import Link from '@mui/material/Link';
+
 const pages = ['Explore', 'Contribute', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -76,11 +79,15 @@ export const Header = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">Explore</Typography>
+              </MenuItem>
+              <MenuItem>
+                <Link href={'/contribute'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Contribute</Typography></Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">About</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -92,15 +99,18 @@ export const Header = () => {
             DISER
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Link href={'/'} component={Button}>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Explore</Typography>
+            </Link>
+            <Link href={'/contribute'} component={Button}>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Contribute</Typography>
+            </Link>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              About
+            </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
