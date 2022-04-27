@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Drawer from '@mui/material/Drawer';
+import { Header } from '../components/Header';
 import { GoogleMap } from "~/components/GoogleMap";
 import { InfoDrawer } from '~/components/InfoDrawer';
 
@@ -24,6 +25,7 @@ export default function Index() {
 
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
+      <Header />
       <Drawer
         anchor='left'
         open={openDrawer}

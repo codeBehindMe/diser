@@ -1,4 +1,4 @@
-import { LineChart, Line, XAxis, YAxis, Label } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Label, CartesianGrid } from 'recharts';
 const data = [
   {name: 'Page A', uv: 66},
   {name: 'Page B', uv: 68},
@@ -31,6 +31,7 @@ const data = [
 export const LineGraph = () => {
   return (
     <LineChart width={400} height={400} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
       <Line type="monotone" dataKey="uv" stroke="#8884d8" dot={false} />
       <XAxis label={"Wavelength [nm]"} tick={false} />
       <YAxis domain={[35, 80]}>

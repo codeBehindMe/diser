@@ -39,7 +39,6 @@ const DrawMap: React.FC<Props> = ({ pins, onPinClick }) => {
     // markers can only be keyboard focusable when they have click listeners
     // open info window when marker is clicked
     marker.addListener("click", () => {
-      console.log(marker)
       // @ts-expect-error
       onPinClick(marker.label)
     });
