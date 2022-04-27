@@ -1,32 +1,37 @@
+import { useState } from 'react';
+import Drawer from '@mui/material/Drawer';
+import { GoogleMap } from "~/components/GoogleMap";
+import { InfoDrawer } from '~/components/InfoDrawer';
+
 export default function Index() {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+
+  const pins = [
+    { lat: -31.56391, lng: 147.154312, id: 'A' },
+    { lat: -33.718234, lng: 150.363181, id: 'B' },
+    { lat: -33.727111, lng: 150.371124, id: 'C' },
+    { lat: -33.848588, lng: 151.209834, id: 'D' },
+  ]
+
+  const toggleDrawer = () => {
+    setOpenDrawer(prev => !prev)
+  }
+
+  const onPinClick = (id: string) => {
+    toggleDrawer()
+  }
+
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+      <Drawer
+        anchor='left'
+        open={openDrawer}
+        onClose={toggleDrawer}
+      >
+        <InfoDrawer title="sean" id="sss" />
+      </Drawer>
+      <GoogleMap pins={pins} onPinClick={onPinClick} />
     </div>
   );
 }
