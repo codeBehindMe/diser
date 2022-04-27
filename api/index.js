@@ -94,6 +94,123 @@ __export(routes_exports, {
 var import_react7 = require("react");
 var import_Drawer = __toESM(require("@mui/material/Drawer"));
 
+// app/components/Header.tsx
+var React2 = __toESM(require("react"));
+var import_AppBar = __toESM(require("@mui/material/AppBar"));
+var import_Box = __toESM(require("@mui/material/Box"));
+var import_Toolbar = __toESM(require("@mui/material/Toolbar"));
+var import_IconButton = __toESM(require("@mui/material/IconButton"));
+var import_Typography = __toESM(require("@mui/material/Typography"));
+var import_Menu = __toESM(require("@mui/material/Menu"));
+var import_Menu2 = __toESM(require("@mui/icons-material/Menu"));
+var import_Container = __toESM(require("@mui/material/Container"));
+var import_Avatar = __toESM(require("@mui/material/Avatar"));
+var import_Button = __toESM(require("@mui/material/Button"));
+var import_Tooltip = __toESM(require("@mui/material/Tooltip"));
+var import_MenuItem = __toESM(require("@mui/material/MenuItem"));
+var pages = ["Explore", "Contribute", "About"];
+var settings = ["Profile", "Account", "Dashboard", "Logout"];
+var Header = () => {
+  const [anchorElNav, setAnchorElNav] = React2.useState(null);
+  const [anchorElUser, setAnchorElUser] = React2.useState(null);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+  return /* @__PURE__ */ React2.createElement(import_AppBar.default, {
+    position: "static"
+  }, /* @__PURE__ */ React2.createElement(import_Container.default, {
+    maxWidth: "xl"
+  }, /* @__PURE__ */ React2.createElement(import_Toolbar.default, {
+    disableGutters: true
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    variant: "h6",
+    noWrap: true,
+    component: "div",
+    sx: { mr: 2, display: { xs: "none", md: "flex" } }
+  }, "DISER"), /* @__PURE__ */ React2.createElement(import_Box.default, {
+    sx: { flexGrow: 1, display: { xs: "flex", md: "none" } }
+  }, /* @__PURE__ */ React2.createElement(import_IconButton.default, {
+    size: "large",
+    "aria-label": "account of current user",
+    "aria-controls": "menu-appbar",
+    "aria-haspopup": "true",
+    onClick: handleOpenNavMenu,
+    color: "inherit"
+  }, /* @__PURE__ */ React2.createElement(import_Menu2.default, null)), /* @__PURE__ */ React2.createElement(import_Menu.default, {
+    id: "menu-appbar",
+    anchorEl: anchorElNav,
+    anchorOrigin: {
+      vertical: "bottom",
+      horizontal: "left"
+    },
+    keepMounted: true,
+    transformOrigin: {
+      vertical: "top",
+      horizontal: "left"
+    },
+    open: Boolean(anchorElNav),
+    onClose: handleCloseNavMenu,
+    sx: {
+      display: { xs: "block", md: "none" }
+    }
+  }, pages.map((page) => /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
+    key: page,
+    onClick: handleCloseNavMenu
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center"
+  }, page))))), /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    variant: "h6",
+    noWrap: true,
+    component: "div",
+    sx: { flexGrow: 1, display: { xs: "flex", md: "none" } }
+  }, "DISER"), /* @__PURE__ */ React2.createElement(import_Box.default, {
+    sx: { flexGrow: 1, display: { xs: "none", md: "flex" } }
+  }, pages.map((page) => /* @__PURE__ */ React2.createElement(import_Button.default, {
+    key: page,
+    onClick: handleCloseNavMenu,
+    sx: { my: 2, color: "white", display: "block" }
+  }, page))), /* @__PURE__ */ React2.createElement(import_Box.default, {
+    sx: { flexGrow: 0 }
+  }, /* @__PURE__ */ React2.createElement(import_Tooltip.default, {
+    title: "Open settings"
+  }, /* @__PURE__ */ React2.createElement(import_IconButton.default, {
+    onClick: handleOpenUserMenu,
+    sx: { p: 0 }
+  }, /* @__PURE__ */ React2.createElement(import_Avatar.default, {
+    alt: "Remy Sharp",
+    src: "/static/images/avatar/2.jpg"
+  }))), /* @__PURE__ */ React2.createElement(import_Menu.default, {
+    sx: { mt: "45px" },
+    id: "menu-appbar",
+    anchorEl: anchorElUser,
+    anchorOrigin: {
+      vertical: "top",
+      horizontal: "right"
+    },
+    keepMounted: true,
+    transformOrigin: {
+      vertical: "top",
+      horizontal: "right"
+    },
+    open: Boolean(anchorElUser),
+    onClose: handleCloseUserMenu
+  }, settings.map((setting) => /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
+    key: setting,
+    onClick: handleCloseUserMenu
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center"
+  }, setting))))))));
+};
+
 // app/components/GoogleMap.tsx
 var import_react6 = require("react");
 var import_react_wrapper = require("@googlemaps/react-wrapper");
@@ -125,7 +242,6 @@ var DrawMap = ({ pins, onPinClick }) => {
       label: pin.id
     });
     marker.addListener("click", () => {
-      console.log(marker);
       onPinClick(marker.label);
     });
     return marker;
@@ -151,7 +267,7 @@ var GoogleMap = ({ pins, onPinClick }) => {
 var import_List = __toESM(require("@mui/material/List"));
 var import_ListItem = __toESM(require("@mui/material/ListItem"));
 var import_ListItemText = __toESM(require("@mui/material/ListItemText"));
-var import_Typography = __toESM(require("@mui/material/Typography"));
+var import_Typography2 = __toESM(require("@mui/material/Typography"));
 var import_Table = __toESM(require("@mui/material/Table"));
 var import_TableBody = __toESM(require("@mui/material/TableBody"));
 var import_TableCell = __toESM(require("@mui/material/TableCell"));
@@ -193,7 +309,9 @@ var LineGraph = () => {
     width: 400,
     height: 400,
     data
-  }, /* @__PURE__ */ React.createElement(import_recharts.Line, {
+  }, /* @__PURE__ */ React.createElement(import_recharts.CartesianGrid, {
+    strokeDasharray: "3 3"
+  }), /* @__PURE__ */ React.createElement(import_recharts.Line, {
     type: "monotone",
     dataKey: "uv",
     stroke: "#8884d8",
@@ -213,7 +331,7 @@ var LineGraph = () => {
 
 // app/components/InfoDrawer.tsx
 var InfoDrawer = ({ title, id }) => {
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(import_Typography.default, {
+  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(import_Typography2.default, {
     variant: "h6",
     noWrap: true
   }, "Location Profile"), /* @__PURE__ */ React.createElement(import_TableContainer.default, null, /* @__PURE__ */ React.createElement(import_Table.default, {
@@ -229,7 +347,7 @@ var InfoDrawer = ({ title, id }) => {
     align: "right"
   }, "20")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Address"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
     align: "right"
-  }, "NA"))))), /* @__PURE__ */ React.createElement(import_Typography.default, {
+  }, "NA"))))), /* @__PURE__ */ React.createElement(import_Typography2.default, {
     variant: "h6",
     noWrap: true
   }, "VISNIR Spectra Profile"), /* @__PURE__ */ React.createElement(import_List.default, null, /* @__PURE__ */ React.createElement(import_ListItem.default, null, /* @__PURE__ */ React.createElement(import_ListItemText.default, {
@@ -254,7 +372,7 @@ function Index() {
   };
   return /* @__PURE__ */ React.createElement("div", {
     style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
-  }, /* @__PURE__ */ React.createElement(import_Drawer.default, {
+  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Drawer.default, {
     anchor: "left",
     open: openDrawer,
     onClose: toggleDrawer
@@ -268,7 +386,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "634c1fee", "entry": { "module": "/build/entry.client-TCKZW6BS.js", "imports": ["/build/_shared/chunk-CPFUQPXY.js", "/build/_shared/chunk-YFGKKFDD.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-JJD34GD4.js", "imports": ["/build/_shared/chunk-VKH36YS3.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-DBTEF6QU.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-634C1FEE.js" };
+var assets_manifest_default = { "version": "ff8eefa1", "entry": { "module": "/build/entry.client-FESB5QBT.js", "imports": ["/build/_shared/chunk-EUVPB5RJ.js", "/build/_shared/chunk-DYVJNLVO.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-KB67QHY4.js", "imports": ["/build/_shared/chunk-4MFQ6A65.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-FUCP3JW6.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FF8EEFA1.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
