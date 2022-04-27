@@ -2,8 +2,5 @@ node_modules
 **/.DS_Store
 public/
 .devcontainer/
-<<<<<<< HEAD
 .env
 .cache
-=======
->>>>>>> 259e2116d1e84af7f3cdb9af97493b1d535f9b91
