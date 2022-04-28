@@ -2,8 +2,22 @@ var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __export = (target, all) => {
   for (var name in all)
@@ -91,7 +105,7 @@ var contribute_exports = {};
 __export(contribute_exports, {
   default: () => Contribute
 });
-var import_Box2 = __toESM(require("@mui/material/Box"));
+var import_Box3 = __toESM(require("@mui/material/Box"));
 
 // app/components/Header.tsx
 var React2 = __toESM(require("react"));
@@ -231,30 +245,171 @@ var Header = () => {
 };
 
 // app/components/FileUpload.tsx
+var import_react5 = require("react");
 var import_Button2 = __toESM(require("@mui/material/Button"));
 var import_Add = __toESM(require("@mui/icons-material/Add"));
+var import_Cancel = __toESM(require("@mui/icons-material/Cancel"));
+var import_Check = __toESM(require("@mui/icons-material/Check"));
+
+// app/components/Progress.tsx
+var import_react4 = require("react");
+var import_CircularProgress = __toESM(require("@mui/material/CircularProgress"));
+var import_Typography2 = __toESM(require("@mui/material/Typography"));
+var import_Box2 = __toESM(require("@mui/material/Box"));
+var CircularProgressWithLabel = (props) => {
+  return /* @__PURE__ */ React.createElement(import_Box2.default, {
+    sx: { position: "relative", display: "inline-flex" }
+  }, /* @__PURE__ */ React.createElement(import_CircularProgress.default, __spreadValues({
+    variant: "determinate"
+  }, props)), /* @__PURE__ */ React.createElement(import_Box2.default, {
+    sx: {
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      position: "absolute",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center"
+    }
+  }, /* @__PURE__ */ React.createElement(import_Typography2.default, {
+    variant: "caption",
+    component: "div",
+    color: "text.secondary"
+  }, `${Math.round(props.value)}%`)));
+};
+var Progress = ({ onDone }) => {
+  const [progress, setProgress] = (0, import_react4.useState)(10);
+  (0, import_react4.useEffect)(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress === 100) {
+          clearInterval(timer);
+        }
+        return prevProgress >= 100 ? 100 : prevProgress + 10;
+      });
+    }, 800);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+  (0, import_react4.useEffect)(() => {
+    if (progress === 100) {
+      onDone();
+    }
+  }, [progress]);
+  return /* @__PURE__ */ React.createElement(CircularProgressWithLabel, {
+    value: progress
+  });
+};
+
+// app/components/DataTable.tsx
+var import_Table = __toESM(require("@mui/material/Table"));
+var import_TableBody = __toESM(require("@mui/material/TableBody"));
+var import_TableCell = __toESM(require("@mui/material/TableCell"));
+var import_TableContainer = __toESM(require("@mui/material/TableContainer"));
+var import_TableRow = __toESM(require("@mui/material/TableRow"));
+var DataTable = () => {
+  return /* @__PURE__ */ React.createElement(import_TableContainer.default, null, /* @__PURE__ */ React.createElement(import_Table.default, {
+    sx: { minWidth: 400 },
+    "aria-label": "simple table"
+  }, /* @__PURE__ */ React.createElement(import_TableBody.default, null, /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Your Location ID"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+    align: "right"
+  }, "icr94245")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Closest IDs to your profile"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+    align: "right"
+  }, "icr23427 | icr88693 | icr65278")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Predicted SOC"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+    align: "right"
+  }, "0.706")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Prediction Error"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+    align: "right"
+  }, "4.04%")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Prediction Confidence"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+    align: "right"
+  }, "96.11%")))));
+};
+
+// app/components/FileUpload.tsx
+var import_material = require("@mui/material");
 var FileUpload = () => {
+  const [fileDetails, setFileDetails] = (0, import_react5.useState)(null);
+  const [sending, setSending] = (0, import_react5.useState)(false);
+  const [result, setResult] = (0, import_react5.useState)(null);
+  const setFile = (event) => {
+    console.log("event", event.target.files);
+    console.log("filename", event.target.files[0].name);
+    const fileSelected = {
+      name: event.target.files[0].name,
+      type: event.target.files[0].type
+    };
+    setFileDetails(fileSelected);
+  };
+  const nullFile = () => {
+    setFileDetails(null);
+    setResult(null);
+  };
+  const sendFile = () => {
+    setSending(true);
+  };
+  const onProgressDone = () => {
+    setSending(false);
+    if (fileDetails && fileDetails.type === "text/csv") {
+      setResult("success");
+    } else {
+      setResult("fail");
+    }
+  };
   return /* @__PURE__ */ React.createElement("div", {
-    className: "App"
-  }, /* @__PURE__ */ React.createElement(import_Button2.default, {
+    style: { display: "block", textAlign: "center" }
+  }, /* @__PURE__ */ React.createElement(import_material.Typography, {
+    variant: "h5"
+  }, "Upload Location Point Data"), result === "fail" && /* @__PURE__ */ React.createElement("div", {
+    style: { margin: "20px auto 0", width: "300px" }
+  }, /* @__PURE__ */ React.createElement(import_material.Typography, {
+    variant: "h6",
+    color: "error"
+  }, "Error"), /* @__PURE__ */ React.createElement("p", null, "Unfortunately your file upload has failed.  We can only accept valid CSV files.  This is a work in progress, we hope to be able to provide a more compelling contribution utility soon.")), result === "success" && /* @__PURE__ */ React.createElement("div", {
+    style: { margin: "20px auto 0", width: "450px" }
+  }, /* @__PURE__ */ React.createElement(import_material.Typography, {
+    variant: "h6",
+    color: "secondary"
+  }, "Success!"), /* @__PURE__ */ React.createElement("p", null, "Your CSV upload has completed successfully. Thank you for contributing to the DISER project."), /* @__PURE__ */ React.createElement(DataTable, null)), !result && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
+    style: { height: "40px", marginTop: "10px" }
+  }, sending && /* @__PURE__ */ React.createElement(Progress, {
+    onDone: onProgressDone
+  })), /* @__PURE__ */ React.createElement("div", {
+    style: { height: "50px" }
+  }, fileDetails && !sending && /* @__PURE__ */ React.createElement("p", null, "Upload: ", fileDetails.name), fileDetails && sending && /* @__PURE__ */ React.createElement("p", null, "Uploading... ", fileDetails.name)), !fileDetails && /* @__PURE__ */ React.createElement(import_Button2.default, {
     variant: "contained",
     component: "label",
     color: "primary"
   }, " ", /* @__PURE__ */ React.createElement(import_Add.default, null), " Upload a file", /* @__PURE__ */ React.createElement("input", {
     type: "file",
-    hidden: true
-  })));
+    hidden: true,
+    onChange: setFile
+  })), fileDetails && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(import_Button2.default, {
+    disabled: sending,
+    onClick: nullFile,
+    variant: "contained",
+    component: "label",
+    color: "error",
+    style: { marginRight: "10px" }
+  }, " ", /* @__PURE__ */ React.createElement(import_Cancel.default, null), " Cancel"), /* @__PURE__ */ React.createElement(import_Button2.default, {
+    disabled: sending,
+    onClick: sendFile,
+    variant: "contained",
+    component: "label",
+    color: "primary",
+    style: { marginLeft: "10px" }
+  }, " ", /* @__PURE__ */ React.createElement(import_Check.default, null), " Send File"))));
 };
 
 // route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
 function Contribute() {
   return /* @__PURE__ */ React.createElement("div", {
     style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
-  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box2.default, {
+  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box3.default, {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    minHeight: "90vh"
+    minHeight: "70vh"
   }, /* @__PURE__ */ React.createElement(FileUpload, null)));
 }
 
@@ -263,18 +418,18 @@ var routes_exports = {};
 __export(routes_exports, {
   default: () => Index
 });
-var import_react7 = require("react");
+var import_react9 = require("react");
 var import_Drawer = __toESM(require("@mui/material/Drawer"));
 
 // app/components/GoogleMap.tsx
-var import_react6 = require("react");
+var import_react8 = require("react");
 var import_react_wrapper = require("@googlemaps/react-wrapper");
 var import_markerclusterer = require("@googlemaps/markerclusterer");
 
 // app/root.tsx
-var import_react4 = require("@remix-run/react");
-var import_react5 = require("react");
-var MapContext2 = (0, import_react5.createContext)("");
+var import_react6 = require("@remix-run/react");
+var import_react7 = require("react");
+var MapContext2 = (0, import_react7.createContext)("");
 
 // app/components/GoogleMap.tsx
 var renderMap = (status) => {
@@ -283,9 +438,9 @@ var renderMap = (status) => {
   return /* @__PURE__ */ React.createElement("p", null, "Loading..");
 };
 var DrawMap = ({ pins, onPinClick }) => {
-  const ref = (0, import_react6.useRef)(null);
-  const [map, setMap] = (0, import_react6.useState)();
-  (0, import_react6.useEffect)(() => {
+  const ref = (0, import_react8.useRef)(null);
+  const [map, setMap] = (0, import_react8.useState)();
+  (0, import_react8.useEffect)(() => {
     if (ref.current && !map) {
       var latlng = new google.maps.LatLng(-34.397, 150.644);
       setMap(new window.google.maps.Map(ref.current, { zoom: 8, center: latlng }));
@@ -308,7 +463,7 @@ var DrawMap = ({ pins, onPinClick }) => {
   });
 };
 var GoogleMap = ({ pins, onPinClick }) => {
-  const MapApiKey = (0, import_react6.useContext)(MapContext2);
+  const MapApiKey = (0, import_react8.useContext)(MapContext2);
   return /* @__PURE__ */ React.createElement(import_react_wrapper.Wrapper, {
     apiKey: MapApiKey,
     render: renderMap
@@ -319,15 +474,16 @@ var GoogleMap = ({ pins, onPinClick }) => {
 };
 
 // app/components/InfoDrawer.tsx
+var import_Button3 = __toESM(require("@mui/material/Button"));
 var import_List = __toESM(require("@mui/material/List"));
 var import_ListItem = __toESM(require("@mui/material/ListItem"));
 var import_ListItemText = __toESM(require("@mui/material/ListItemText"));
-var import_Typography2 = __toESM(require("@mui/material/Typography"));
-var import_Table = __toESM(require("@mui/material/Table"));
-var import_TableBody = __toESM(require("@mui/material/TableBody"));
-var import_TableCell = __toESM(require("@mui/material/TableCell"));
-var import_TableContainer = __toESM(require("@mui/material/TableContainer"));
-var import_TableRow = __toESM(require("@mui/material/TableRow"));
+var import_Typography3 = __toESM(require("@mui/material/Typography"));
+var import_Table2 = __toESM(require("@mui/material/Table"));
+var import_TableBody2 = __toESM(require("@mui/material/TableBody"));
+var import_TableCell2 = __toESM(require("@mui/material/TableCell"));
+var import_TableContainer2 = __toESM(require("@mui/material/TableContainer"));
+var import_TableRow2 = __toESM(require("@mui/material/TableRow"));
 
 // app/components/LineGraph.tsx
 var import_recharts = require("recharts");
@@ -386,33 +542,40 @@ var LineGraph = () => {
 
 // app/components/InfoDrawer.tsx
 var InfoDrawer = ({ title, id }) => {
-  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(import_Typography2.default, {
+  return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(import_Typography3.default, {
     variant: "h6",
     noWrap: true
-  }, "Location Profile"), /* @__PURE__ */ React.createElement(import_TableContainer.default, null, /* @__PURE__ */ React.createElement(import_Table.default, {
+  }, "Location Profile"), /* @__PURE__ */ React.createElement(import_TableContainer2.default, null, /* @__PURE__ */ React.createElement(import_Table2.default, {
     sx: { minWidth: 350 },
     "aria-label": "simple table"
-  }, /* @__PURE__ */ React.createElement(import_TableBody.default, null, /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "ID"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+  }, /* @__PURE__ */ React.createElement(import_TableBody2.default, null, /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "ID"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
     align: "right"
-  }, "icr05623")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Soil texture"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+  }, "icr05623")), /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "Soil texture"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
     align: "right"
-  }, "NA")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Upper depth (cm)"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+  }, "NA")), /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "Upper depth (cm)"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
     align: "right"
-  }, "0")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Lower depth (cm)"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+  }, "0")), /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "Lower depth (cm)"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
     align: "right"
-  }, "20")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Address"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
+  }, "20")), /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "Address"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
     align: "right"
-  }, "NA"))))), /* @__PURE__ */ React.createElement(import_Typography2.default, {
+  }, "NA")), /* @__PURE__ */ React.createElement(import_TableRow2.default, null, /* @__PURE__ */ React.createElement(import_TableCell2.default, null, "Closest Profile IDs"), /* @__PURE__ */ React.createElement(import_TableCell2.default, {
+    align: "right"
+  }, "icr00233, icr40323, icr03523, icr55663"))))), /* @__PURE__ */ React.createElement(import_Typography3.default, {
     variant: "h6",
     noWrap: true
   }, "VISNIR Spectra Profile"), /* @__PURE__ */ React.createElement(import_List.default, null, /* @__PURE__ */ React.createElement(import_ListItem.default, null, /* @__PURE__ */ React.createElement(import_ListItemText.default, {
     primary: "item"
-  }))), /* @__PURE__ */ React.createElement(LineGraph, null));
+  }))), /* @__PURE__ */ React.createElement(LineGraph, null), /* @__PURE__ */ React.createElement("div", {
+    style: { display: "flex", justifyContent: "center", margin: "10px auto" }
+  }, /* @__PURE__ */ React.createElement(import_Button3.default, {
+    variant: "contained",
+    color: "primary"
+  }, "Download this dataset")));
 };
 
 // route:/Users/seathomp1/Documents/diser/app/routes/index.tsx
 function Index() {
-  const [openDrawer, setOpenDrawer] = (0, import_react7.useState)(false);
+  const [openDrawer, setOpenDrawer] = (0, import_react9.useState)(false);
   const pins = [
     { lat: -31.56391, lng: 147.154312, id: "A" },
     { lat: -33.718234, lng: 150.363181, id: "B" },
@@ -441,7 +604,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "5406f063", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-ISPGIFIH.js", "imports": ["/build/_shared/chunk-X2JWR37W.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-V7AL66WI.js", "imports": ["/build/_shared/chunk-X2JWR37W.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-5406F063.js" };
+var assets_manifest_default = { "version": "db88eec1", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-JMKEEFGU.js", "imports": ["/build/_shared/chunk-52NNXQIH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-PPOOO3FG.js", "imports": ["/build/_shared/chunk-52NNXQIH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-DB88EEC1.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

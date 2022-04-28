@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -9,7 +10,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
 import { LineGraph } from './LineGraph';
 
@@ -48,6 +48,10 @@ export const InfoDrawer: React.FC<Props> = ({ title, id }) => {
               <TableCell>Address</TableCell>
               <TableCell align="right">NA</TableCell>
             </TableRow>
+            <TableRow>
+              <TableCell>Closest Profile IDs</TableCell>
+              <TableCell align="right">icr00233, icr40323, icr03523, icr55663</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>
@@ -61,6 +65,10 @@ export const InfoDrawer: React.FC<Props> = ({ title, id }) => {
         </ListItem>
       </List>
       <LineGraph />
+
+      <div style={{ display: 'flex', justifyContent: 'center', margin: '10px auto' }}>
+        <Button variant="contained" color="primary" >Download this dataset</Button>
+      </div>
     </div>
   );
 };
