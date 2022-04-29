@@ -70,7 +70,7 @@ function handleRequest(request, responseStatusCode, responseHeaders, remixContex
   });
 }
 
-// route:/Users/seathomp1/Documents/diser/app/root.tsx
+// route:/workspaces/diser/app/root.tsx
 var root_exports = {};
 __export(root_exports, {
   MapContext: () => MapContext,
@@ -100,7 +100,7 @@ function App() {
   }, /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null))));
 }
 
-// route:/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx
+// route:/workspaces/diser/app/routes/underconstruction.tsx
 var underconstruction_exports = {};
 __export(underconstruction_exports, {
   default: () => UnderConstruction
@@ -286,7 +286,7 @@ var Header = () => {
   }, setting))))))));
 };
 
-// route:/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx
+// route:/workspaces/diser/app/routes/underconstruction.tsx
 function UnderConstruction() {
   return /* @__PURE__ */ React.createElement("div", {
     style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
@@ -303,7 +303,7 @@ function UnderConstruction() {
   }), /* @__PURE__ */ React.createElement("p", null, "This page is under construction")));
 }
 
-// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
+// route:/workspaces/diser/app/routes/contribute.tsx
 var contribute_exports = {};
 __export(contribute_exports, {
   default: () => Contribute
@@ -565,7 +565,7 @@ var FileUpload = () => {
   }, " ", /* @__PURE__ */ React.createElement(import_Check.default, null), " Send File"))));
 };
 
-// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
+// route:/workspaces/diser/app/routes/contribute.tsx
 function Contribute() {
   return /* @__PURE__ */ React.createElement("div", {
     style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
@@ -577,7 +577,7 @@ function Contribute() {
   }, /* @__PURE__ */ React.createElement(FileUpload, null)));
 }
 
-// route:/Users/seathomp1/Documents/diser/app/routes/index.tsx
+// route:/workspaces/diser/app/routes/index.tsx
 var routes_exports = {};
 __export(routes_exports, {
   default: () => Index
@@ -680,9 +680,22 @@ var InfoDrawer = ({ title, id }) => {
   }, "Download this dataset")));
 };
 
-// route:/Users/seathomp1/Documents/diser/app/routes/index.tsx
+// route:/workspaces/diser/app/routes/index.tsx
 function Index() {
   const [openDrawer, setOpenDrawer] = (0, import_react9.useState)(false);
+  const [_pins, setPins] = (0, import_react9.useState)([]);
+  (0, import_react9.useEffect)(() => {
+    const getPins = async () => {
+      const pinsFromServer = await fetchPins();
+      setPins(pinsFromServer);
+    };
+    getPins();
+  }, []);
+  const fetchPins = async () => {
+    const res = await fetch("http://localhost:5000/pins");
+    const data3 = res.json();
+    return data3;
+  };
   const pins = [
     { lat: -31.56391, lng: 147.154312, id: "A" },
     { lat: -33.718234, lng: 150.363181, id: "B" },
@@ -705,13 +718,13 @@ function Index() {
     title: "sean",
     id: "sss"
   })), /* @__PURE__ */ React.createElement(GoogleMap, {
-    pins,
+    pins: _pins,
     onPinClick
   }));
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "a5f67c27", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-KENUCKC7.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-A6CP7OKC.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/underconstruction": { "id": "routes/underconstruction", "parentId": "root", "path": "underconstruction", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/underconstruction-D4DDRYX5.js", "imports": ["/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-A5F67C27.js" };
+var assets_manifest_default = { "version": "4b81bd7b", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-P7VHT6G4.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-QTGBF6UH.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-CMO5QB6G.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/underconstruction": { "id": "routes/underconstruction", "parentId": "root", "path": "underconstruction", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/underconstruction-Q7R32AGY.js", "imports": ["/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-4B81BD7B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
