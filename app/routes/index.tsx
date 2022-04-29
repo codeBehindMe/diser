@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Drawer from '@mui/material/Drawer';
 import { Header } from '../components/Header';
 import { GoogleMap } from "~/components/GoogleMap";
@@ -6,6 +6,23 @@ import { InfoDrawer } from '~/components/InfoDrawer';
 
 export default function Index() {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [_pins, setPins] = useState([])
+
+  useEffect(() => {
+    const getPins = async () => {
+    const pinsFromServer = await fetchPins()
+    setPins(pinsFromServer)
+    }
+    getPins()
+  }, [])
+
+  const fetchPins = async () => {
+      const res = await fetch("http://localhost:5000/pins")
+      const data = res.json()
+
+      return data
+  }
+
 
 
   const pins = [
@@ -33,7 +50,7 @@ export default function Index() {
       >
         <InfoDrawer title="sean" id="sss" />
       </Drawer>
-      <GoogleMap pins={pins} onPinClick={onPinClick} />
+      <GoogleMap pins={_pins} onPinClick={onPinClick} />
     </div>
   );
 }
