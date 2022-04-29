@@ -3,3 +3,4 @@ node_modules
 .devcontainer/
 .env
 .cache
+public/build/
