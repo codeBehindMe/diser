@@ -1,36 +1,75 @@
 import { LineChart, Line, XAxis, YAxis, Label, CartesianGrid } from 'recharts';
 const data = [
-  {name: 'Page A', uv: 66},
-  {name: 'Page B', uv: 68},
-  {name: 'Page B', uv: 70},
-  {name: 'Page B', uv: 72},
-  {name: 'Page B', uv: 70},
-  {name: 'Page B', uv: 72},
-  {name: 'Page B', uv: 73},
-  {name: 'Page B', uv: 73},
-  {name: 'Page B', uv: 72},
-  {name: 'Page B', uv: 71},
-  {name: 'Page B', uv: 70},
-  {name: 'Page B', uv: 68},
-  {name: 'Page B', uv: 74},
-  {name: 'Page B', uv: 74},
-  {name: 'Page B', uv: 74},
-  {name: 'Page B', uv: 73},
-  {name: 'Page B', uv: 72},
-  {name: 'Page B', uv: 71},
-  {name: 'Page B', uv: 70},
-  {name: 'Page B', uv: 72},
-  {name: 'Page B', uv: 71},
-  {name: 'Page B', uv: 64},
-  {name: 'Page B', uv: 52},
-  {name: 'Page B', uv: 44},
-  {name: 'Page B', uv: 35},
-  {name: 'Page B', uv: 36},
+  {uv: 54}, 
+  {uv: 65}, 
+  {uv: 80},
+  {uv: 72},
+  {uv: 70},
+  {uv: 72},
+  {uv: 73},
+  {uv: 73},
+  {uv: 72},
+  {uv: 71},
+  {uv: 70},
+  {uv: 68},
+  {uv: 74},
+  {uv: 74},
+  {uv: 74},
+  {uv: 73},
+  {uv: 72},
+  {uv: 71},
+  {uv: 70},
+  {uv: 72},
+  {uv: 71},
+  {uv: 64},
+  {uv: 58},
+  {uv: 60},
+  {uv: 52},
+  {uv: 56},
 ];
 
-export const LineGraph = () => {
+const data2 = [
+  {uv: 66}, 
+  {uv: 68}, 
+  {uv: 70},
+  {uv: 72},
+  {uv: 70},
+  {uv: 72},
+  {uv: 73},
+  {uv: 73},
+  {uv: 72},
+  {uv: 71},
+  {uv: 70},
+  {uv: 68},
+  {uv: 74},
+  {uv: 74},
+  {uv: 74},
+  {uv: 73},
+  {uv: 72},
+  {uv: 71},
+  {uv: 70},
+  {uv: 72},
+  {uv: 71},
+  {uv: 64},
+  {uv: 52},
+  {uv: 44},
+  {uv: 35},
+  {uv: 36},
+];
+
+interface Props {
+  version?: string
+}
+
+export const LineGraph: React.FC<Props> = ({ version }) => {
+  let useData = data;
+
+  if (version == 'data2') {
+    useData = data2;
+  }
+
   return (
-    <LineChart width={400} height={400} data={data}>
+    <LineChart width={400} height={400} data={useData}>
       <CartesianGrid strokeDasharray="3 3" />
       <Line type="monotone" dataKey="uv" stroke="#8884d8" dot={false} />
       <XAxis label={"Wavelength [nm]"} tick={false} />

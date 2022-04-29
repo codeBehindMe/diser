@@ -100,12 +100,12 @@ function App() {
   }, /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null))));
 }
 
-// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
-var contribute_exports = {};
-__export(contribute_exports, {
-  default: () => Contribute
+// route:/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx
+var underconstruction_exports = {};
+__export(underconstruction_exports, {
+  default: () => UnderConstruction
 });
-var import_Box3 = __toESM(require("@mui/material/Box"));
+var import_Box2 = __toESM(require("@mui/material/Box"));
 
 // app/components/Header.tsx
 var React2 = __toESM(require("react"));
@@ -185,6 +185,30 @@ var Header = () => {
   }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
     textAlign: "center",
     sx: { color: "black" }
+  }, "Predict SOC"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, null, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    sx: { textDecoration: "none" }
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center",
+    sx: { color: "black" }
+  }, "About"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, null, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    sx: { textDecoration: "none" }
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center",
+    sx: { color: "black" }
+  }, "Commercial"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, null, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    sx: { textDecoration: "none" }
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center",
+    sx: { color: "black" }
+  }, "Documentation"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, null, /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "https://github.com/Nostin/diser",
+    sx: { textDecoration: "none" }
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    textAlign: "center",
+    sx: { color: "black" }
   }, "Contribute"))), /* @__PURE__ */ React2.createElement(import_MenuItem.default, {
     onClick: handleCloseNavMenu
   }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
@@ -208,7 +232,25 @@ var Header = () => {
   }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
     sx: { color: "white", fontSize: "14px", fontWeight: 500 },
     textAlign: "center"
-  }, "Contribute")), /* @__PURE__ */ React2.createElement(import_Button.default, {
+  }, "Predict SOC")), /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    component: import_Button.default
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    sx: { color: "white", fontSize: "14px", fontWeight: 500 },
+    textAlign: "center"
+  }, "About")), /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    component: import_Button.default
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    sx: { color: "white", fontSize: "14px", fontWeight: 500 },
+    textAlign: "center"
+  }, "Commercial")), /* @__PURE__ */ React2.createElement(import_Link.default, {
+    href: "/underconstruction",
+    component: import_Button.default
+  }, /* @__PURE__ */ React2.createElement(import_Typography.default, {
+    sx: { color: "white", fontSize: "14px", fontWeight: 500 },
+    textAlign: "center"
+  }, "Documentation")), /* @__PURE__ */ React2.createElement(import_Button.default, {
     onClick: handleCloseNavMenu,
     sx: { my: 2, color: "white", display: "block" }
   }, "About")), /* @__PURE__ */ React2.createElement(import_Box.default, {
@@ -244,9 +286,33 @@ var Header = () => {
   }, setting))))))));
 };
 
+// route:/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx
+function UnderConstruction() {
+  return /* @__PURE__ */ React.createElement("div", {
+    style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
+  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box2.default, {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "70vh"
+  }, /* @__PURE__ */ React.createElement("img", {
+    src: "/assets/under_construction.png",
+    alt: "under construction",
+    style: { width: "350px" }
+  }), /* @__PURE__ */ React.createElement("p", null, "This page is under construction")));
+}
+
+// route:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx
+var contribute_exports = {};
+__export(contribute_exports, {
+  default: () => Contribute
+});
+var import_Box4 = __toESM(require("@mui/material/Box"));
+
 // app/components/FileUpload.tsx
 var import_react5 = require("react");
-var import_Button2 = __toESM(require("@mui/material/Button"));
+var import_Button3 = __toESM(require("@mui/material/Button"));
 var import_Add = __toESM(require("@mui/icons-material/Add"));
 var import_Cancel = __toESM(require("@mui/icons-material/Cancel"));
 var import_Check = __toESM(require("@mui/icons-material/Check"));
@@ -255,13 +321,13 @@ var import_Check = __toESM(require("@mui/icons-material/Check"));
 var import_react4 = require("react");
 var import_CircularProgress = __toESM(require("@mui/material/CircularProgress"));
 var import_Typography2 = __toESM(require("@mui/material/Typography"));
-var import_Box2 = __toESM(require("@mui/material/Box"));
+var import_Box3 = __toESM(require("@mui/material/Box"));
 var CircularProgressWithLabel = (props) => {
-  return /* @__PURE__ */ React.createElement(import_Box2.default, {
+  return /* @__PURE__ */ React.createElement(import_Box3.default, {
     sx: { position: "relative", display: "inline-flex" }
   }, /* @__PURE__ */ React.createElement(import_CircularProgress.default, __spreadValues({
     variant: "determinate"
-  }, props)), /* @__PURE__ */ React.createElement(import_Box2.default, {
+  }, props)), /* @__PURE__ */ React.createElement(import_Box3.default, {
     sx: {
       top: 0,
       left: 0,
@@ -288,7 +354,7 @@ var Progress = ({ onDone }) => {
         }
         return prevProgress >= 100 ? 100 : prevProgress + 10;
       });
-    }, 800);
+    }, 80);
     return () => {
       clearInterval(timer);
     };
@@ -304,14 +370,110 @@ var Progress = ({ onDone }) => {
 };
 
 // app/components/DataTable.tsx
+var import_Button2 = __toESM(require("@mui/material/Button"));
 var import_Table = __toESM(require("@mui/material/Table"));
 var import_TableBody = __toESM(require("@mui/material/TableBody"));
 var import_TableCell = __toESM(require("@mui/material/TableCell"));
 var import_TableContainer = __toESM(require("@mui/material/TableContainer"));
 var import_TableRow = __toESM(require("@mui/material/TableRow"));
+
+// app/components/LineGraph.tsx
+var import_recharts = require("recharts");
+var data = [
+  { uv: 54 },
+  { uv: 65 },
+  { uv: 80 },
+  { uv: 72 },
+  { uv: 70 },
+  { uv: 72 },
+  { uv: 73 },
+  { uv: 73 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 70 },
+  { uv: 68 },
+  { uv: 74 },
+  { uv: 74 },
+  { uv: 74 },
+  { uv: 73 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 70 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 64 },
+  { uv: 58 },
+  { uv: 60 },
+  { uv: 52 },
+  { uv: 56 }
+];
+var data2 = [
+  { uv: 66 },
+  { uv: 68 },
+  { uv: 70 },
+  { uv: 72 },
+  { uv: 70 },
+  { uv: 72 },
+  { uv: 73 },
+  { uv: 73 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 70 },
+  { uv: 68 },
+  { uv: 74 },
+  { uv: 74 },
+  { uv: 74 },
+  { uv: 73 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 70 },
+  { uv: 72 },
+  { uv: 71 },
+  { uv: 64 },
+  { uv: 52 },
+  { uv: 44 },
+  { uv: 35 },
+  { uv: 36 }
+];
+var LineGraph = ({ version }) => {
+  let useData = data;
+  if (version == "data2") {
+    useData = data2;
+  }
+  return /* @__PURE__ */ React.createElement(import_recharts.LineChart, {
+    width: 400,
+    height: 400,
+    data: useData
+  }, /* @__PURE__ */ React.createElement(import_recharts.CartesianGrid, {
+    strokeDasharray: "3 3"
+  }), /* @__PURE__ */ React.createElement(import_recharts.Line, {
+    type: "monotone",
+    dataKey: "uv",
+    stroke: "#8884d8",
+    dot: false
+  }), /* @__PURE__ */ React.createElement(import_recharts.XAxis, {
+    label: "Wavelength [nm]",
+    tick: false
+  }), /* @__PURE__ */ React.createElement(import_recharts.YAxis, {
+    domain: [35, 80]
+  }, /* @__PURE__ */ React.createElement(import_recharts.Label, {
+    angle: -90,
+    value: "Reflectance [%]",
+    position: "insideLeft",
+    style: { textAnchor: "middle" }
+  })));
+};
+
+// app/components/DataTable.tsx
 var DataTable = () => {
-  return /* @__PURE__ */ React.createElement(import_TableContainer.default, null, /* @__PURE__ */ React.createElement(import_Table.default, {
-    sx: { minWidth: 400 },
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(import_Button2.default, {
+    variant: "contained"
+  }, "Contribute this data to the repository"), /* @__PURE__ */ React.createElement("div", {
+    style: { display: "flex" }
+  }, /* @__PURE__ */ React.createElement(import_TableContainer.default, {
+    style: { marginRight: "20px" }
+  }, /* @__PURE__ */ React.createElement(import_Table.default, {
+    sx: { width: 400 },
     "aria-label": "simple table"
   }, /* @__PURE__ */ React.createElement(import_TableBody.default, null, /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Your Location ID"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
     align: "right"
@@ -323,7 +485,9 @@ var DataTable = () => {
     align: "right"
   }, "4.04%")), /* @__PURE__ */ React.createElement(import_TableRow.default, null, /* @__PURE__ */ React.createElement(import_TableCell.default, null, "Prediction Confidence"), /* @__PURE__ */ React.createElement(import_TableCell.default, {
     align: "right"
-  }, "96.11%")))));
+  }, "96.11%"))))), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("p", null, "VISNIR Spectra Profile"), /* @__PURE__ */ React.createElement(LineGraph, {
+    version: "data2"
+  }))));
 };
 
 // app/components/FileUpload.tsx
@@ -357,41 +521,41 @@ var FileUpload = () => {
     }
   };
   return /* @__PURE__ */ React.createElement("div", {
-    style: { display: "block", textAlign: "center" }
+    style: { display: "block", textAlign: "center", marginTop: "20px" }
   }, /* @__PURE__ */ React.createElement(import_material.Typography, {
     variant: "h5"
-  }, "Upload Location Point Data"), result === "fail" && /* @__PURE__ */ React.createElement("div", {
+  }, "Predict SOC"), /* @__PURE__ */ React.createElement("p", null, "Please upload a valid SOC csv file"), result === "fail" && /* @__PURE__ */ React.createElement("div", {
     style: { margin: "20px auto 0", width: "300px" }
   }, /* @__PURE__ */ React.createElement(import_material.Typography, {
     variant: "h6",
     color: "error"
-  }, "Error"), /* @__PURE__ */ React.createElement("p", null, "Unfortunately your file upload has failed.  We can only accept valid CSV files.  This is a work in progress, we hope to be able to provide a more compelling contribution utility soon.")), result === "success" && /* @__PURE__ */ React.createElement("div", {
+  }, "Error"), /* @__PURE__ */ React.createElement("p", null, "Unfortunately your file upload has failed.  We can only accept valid CSV files.  This is a work in progress, we hope to be able to provide a more compelling contribution utility soon.")), result === "success" && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     style: { margin: "20px auto 0", width: "450px" }
   }, /* @__PURE__ */ React.createElement(import_material.Typography, {
     variant: "h6",
     color: "secondary"
-  }, "Success!"), /* @__PURE__ */ React.createElement("p", null, "Your CSV upload has completed successfully. Thank you for contributing to the DISER project."), /* @__PURE__ */ React.createElement(DataTable, null)), !result && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
+  }, "Success!"), /* @__PURE__ */ React.createElement("p", null, "Your CSV upload has completed successfully. Thank you for contributing to the DISER project.")), /* @__PURE__ */ React.createElement(DataTable, null)), !result && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
     style: { height: "40px", marginTop: "10px" }
   }, sending && /* @__PURE__ */ React.createElement(Progress, {
     onDone: onProgressDone
   })), /* @__PURE__ */ React.createElement("div", {
     style: { height: "50px" }
-  }, fileDetails && !sending && /* @__PURE__ */ React.createElement("p", null, "Upload: ", fileDetails.name), fileDetails && sending && /* @__PURE__ */ React.createElement("p", null, "Uploading... ", fileDetails.name)), !fileDetails && /* @__PURE__ */ React.createElement(import_Button2.default, {
+  }, fileDetails && !sending && /* @__PURE__ */ React.createElement("p", null, "Upload: ", fileDetails.name), fileDetails && sending && /* @__PURE__ */ React.createElement("p", null, "Uploading... ", fileDetails.name)), !fileDetails && /* @__PURE__ */ React.createElement(import_Button3.default, {
     variant: "contained",
     component: "label",
     color: "primary"
-  }, " ", /* @__PURE__ */ React.createElement(import_Add.default, null), " Upload a file", /* @__PURE__ */ React.createElement("input", {
+  }, " ", /* @__PURE__ */ React.createElement(import_Add.default, null), " Select CSV", /* @__PURE__ */ React.createElement("input", {
     type: "file",
     hidden: true,
     onChange: setFile
-  })), fileDetails && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(import_Button2.default, {
+  })), fileDetails && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(import_Button3.default, {
     disabled: sending,
     onClick: nullFile,
     variant: "contained",
     component: "label",
     color: "error",
     style: { marginRight: "10px" }
-  }, " ", /* @__PURE__ */ React.createElement(import_Cancel.default, null), " Cancel"), /* @__PURE__ */ React.createElement(import_Button2.default, {
+  }, " ", /* @__PURE__ */ React.createElement(import_Cancel.default, null), " Cancel"), /* @__PURE__ */ React.createElement(import_Button3.default, {
     disabled: sending,
     onClick: sendFile,
     variant: "contained",
@@ -405,7 +569,7 @@ var FileUpload = () => {
 function Contribute() {
   return /* @__PURE__ */ React.createElement("div", {
     style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }
-  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box3.default, {
+  }, /* @__PURE__ */ React.createElement(Header, null), /* @__PURE__ */ React.createElement(import_Box4.default, {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -474,7 +638,7 @@ var GoogleMap = ({ pins, onPinClick }) => {
 };
 
 // app/components/InfoDrawer.tsx
-var import_Button3 = __toESM(require("@mui/material/Button"));
+var import_Button4 = __toESM(require("@mui/material/Button"));
 var import_List = __toESM(require("@mui/material/List"));
 var import_ListItem = __toESM(require("@mui/material/ListItem"));
 var import_ListItemText = __toESM(require("@mui/material/ListItemText"));
@@ -484,63 +648,6 @@ var import_TableBody2 = __toESM(require("@mui/material/TableBody"));
 var import_TableCell2 = __toESM(require("@mui/material/TableCell"));
 var import_TableContainer2 = __toESM(require("@mui/material/TableContainer"));
 var import_TableRow2 = __toESM(require("@mui/material/TableRow"));
-
-// app/components/LineGraph.tsx
-var import_recharts = require("recharts");
-var data = [
-  { name: "Page A", uv: 66 },
-  { name: "Page B", uv: 68 },
-  { name: "Page B", uv: 70 },
-  { name: "Page B", uv: 72 },
-  { name: "Page B", uv: 70 },
-  { name: "Page B", uv: 72 },
-  { name: "Page B", uv: 73 },
-  { name: "Page B", uv: 73 },
-  { name: "Page B", uv: 72 },
-  { name: "Page B", uv: 71 },
-  { name: "Page B", uv: 70 },
-  { name: "Page B", uv: 68 },
-  { name: "Page B", uv: 74 },
-  { name: "Page B", uv: 74 },
-  { name: "Page B", uv: 74 },
-  { name: "Page B", uv: 73 },
-  { name: "Page B", uv: 72 },
-  { name: "Page B", uv: 71 },
-  { name: "Page B", uv: 70 },
-  { name: "Page B", uv: 72 },
-  { name: "Page B", uv: 71 },
-  { name: "Page B", uv: 64 },
-  { name: "Page B", uv: 52 },
-  { name: "Page B", uv: 44 },
-  { name: "Page B", uv: 35 },
-  { name: "Page B", uv: 36 }
-];
-var LineGraph = () => {
-  return /* @__PURE__ */ React.createElement(import_recharts.LineChart, {
-    width: 400,
-    height: 400,
-    data
-  }, /* @__PURE__ */ React.createElement(import_recharts.CartesianGrid, {
-    strokeDasharray: "3 3"
-  }), /* @__PURE__ */ React.createElement(import_recharts.Line, {
-    type: "monotone",
-    dataKey: "uv",
-    stroke: "#8884d8",
-    dot: false
-  }), /* @__PURE__ */ React.createElement(import_recharts.XAxis, {
-    label: "Wavelength [nm]",
-    tick: false
-  }), /* @__PURE__ */ React.createElement(import_recharts.YAxis, {
-    domain: [35, 80]
-  }, /* @__PURE__ */ React.createElement(import_recharts.Label, {
-    angle: -90,
-    value: "Reflectance [%]",
-    position: "insideLeft",
-    style: { textAnchor: "middle" }
-  })));
-};
-
-// app/components/InfoDrawer.tsx
 var InfoDrawer = ({ title, id }) => {
   return /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement(import_Typography3.default, {
     variant: "h6",
@@ -567,7 +674,7 @@ var InfoDrawer = ({ title, id }) => {
     primary: "item"
   }))), /* @__PURE__ */ React.createElement(LineGraph, null), /* @__PURE__ */ React.createElement("div", {
     style: { display: "flex", justifyContent: "center", margin: "10px auto" }
-  }, /* @__PURE__ */ React.createElement(import_Button3.default, {
+  }, /* @__PURE__ */ React.createElement(import_Button4.default, {
     variant: "contained",
     color: "primary"
   }, "Download this dataset")));
@@ -604,7 +711,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "db88eec1", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-JMKEEFGU.js", "imports": ["/build/_shared/chunk-52NNXQIH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-PPOOO3FG.js", "imports": ["/build/_shared/chunk-52NNXQIH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-DB88EEC1.js" };
+var assets_manifest_default = { "version": "a5f67c27", "entry": { "module": "/build/entry.client-UDFPZPXK.js", "imports": ["/build/_shared/chunk-6YCRFQN3.js", "/build/_shared/chunk-LYBWQ6RX.js", "/build/_shared/chunk-JMDK7EPH.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WZYFJXQI.js", "imports": ["/build/_shared/chunk-VIZ6JHA2.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contribute": { "id": "routes/contribute", "parentId": "root", "path": "contribute", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contribute-KENUCKC7.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-A6CP7OKC.js", "imports": ["/build/_shared/chunk-43FXRBQS.js", "/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/underconstruction": { "id": "routes/underconstruction", "parentId": "root", "path": "underconstruction", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/underconstruction-D4DDRYX5.js", "imports": ["/build/_shared/chunk-GOP3TJOH.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-A5F67C27.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
@@ -616,6 +723,14 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
+  },
+  "routes/underconstruction": {
+    id: "routes/underconstruction",
+    parentId: "root",
+    path: "underconstruction",
+    index: void 0,
+    caseSensitive: void 0,
+    module: underconstruction_exports
   },
   "routes/contribute": {
     id: "routes/contribute",

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["browser-route-module:/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx?browser", "../../../app/routes/underconstruction.tsx"],
+  "sourcesContent": ["export { default } from \"/Users/seathomp1/Documents/diser/app/routes/underconstruction.tsx\";", "import Box from '@mui/material/Box';\nimport { Header } from '../components/Header';\n\nexport default function UnderConstruction() {\n\n  return (\n    <div style={{ fontFamily: \"system-ui, sans-serif\", lineHeight: \"1.4\" }}>\n      <Header />\n      <Box\n        display=\"flex\"\n        flexDirection=\"column\"\n        justifyContent=\"center\"\n        alignItems=\"center\"\n        minHeight=\"70vh\"\n      >\n        <img src=\"/assets/under_construction.png\" alt=\"under construction\" style={{ width: '350px' }} />\n        <p>this page is under construction</p>\n      </Box>\n    </div>\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;;AAAA;;;ACAA;AAGe,6BAA6B;AAE1C,SACE,oCAAC,OAAD;AAAA,IAAK,OAAO,EAAE,YAAY,yBAAyB,YAAY;AAAA,KAC7D,oCAAC,QAAD,OACA,oCAAC,aAAD;AAAA,IACE,SAAQ;AAAA,IACR,eAAc;AAAA,IACd,gBAAe;AAAA,IACf,YAAW;AAAA,IACX,WAAU;AAAA,KAEV,oCAAC,OAAD;AAAA,IAAK,KAAI;AAAA,IAAiC,KAAI;AAAA,IAAqB,OAAO,EAAE,OAAO;AAAA,MACnF,oCAAC,KAAD,MAAG;AAAA;",
+  "names": []
+}

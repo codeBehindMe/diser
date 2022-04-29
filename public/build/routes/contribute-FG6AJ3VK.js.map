@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["browser-route-module:/Users/seathomp1/Documents/diser/app/routes/contribute.tsx?browser", "../../../app/routes/contribute.tsx"],
+  "sourcesContent": ["export { default } from \"/Users/seathomp1/Documents/diser/app/routes/contribute.tsx\";", "import { Header } from '../components/Header';\n\nexport default function Contribute() {\n\n  return (\n    <div style={{ fontFamily: \"system-ui, sans-serif\", lineHeight: \"1.4\" }}>\n      <Header />\n      <p>sean boy</p>\n    </div>\n  );\n}\n"],
+  "mappings": ";;;;;;;;;;AAAA;;;ACAA;AAEe,sBAAsB;AAEnC,SACE,oCAAC,OAAD;AAAA,IAAK,OAAO,EAAE,YAAY,yBAAyB,YAAY;AAAA,KAC7D,oCAAC,QAAD,OACA,oCAAC,KAAD,MAAG;AAAA;",
+  "names": []
+}

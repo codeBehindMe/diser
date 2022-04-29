@@ -44,7 +44,7 @@ export const Progress = ({ onDone }: { onDone: () => void}) => {
         }
         return prevProgress >= 100 ? 100 : prevProgress + 10;
       })
-    }, 800);
+    }, 80);
 
     return () => {
       clearInterval(timer);

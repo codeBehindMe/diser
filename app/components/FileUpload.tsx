@@ -52,8 +52,9 @@ export const FileUpload: React.FC<Props> = () => {
   }
 
   return (
-    <div style={{ display: 'block', textAlign: 'center' }}>
-      <Typography variant="h5">Upload Location Point Data</Typography>
+    <div style={{ display: 'block', textAlign: 'center', marginTop: '20px' }}>
+      <Typography variant="h5">Predict SOC</Typography>
+      <p>Please upload a valid SOC csv file</p>
       {result === 'fail' && (
         <div style={{ margin: '20px auto 0', width: '300px' }}>
           <Typography variant="h6" color="error">Error</Typography>
@@ -61,11 +62,13 @@ export const FileUpload: React.FC<Props> = () => {
         </div>
       )}
       {result === 'success' && (
-        <div style={{ margin: '20px auto 0', width: '450px' }}>
-          <Typography variant="h6" color="secondary">Success!</Typography>
-          <p>Your CSV upload has completed successfully. Thank you for contributing to the DISER project.</p>
+        <>
+          <div style={{ margin: '20px auto 0', width: '450px' }}>
+            <Typography variant="h6" color="secondary">Success!</Typography>
+            <p>Your CSV upload has completed successfully. Thank you for contributing to the DISER project.</p>
+          </div>
           <DataTable />
-        </div>
+        </>
       )}
       {!result && (
         <>
@@ -79,7 +82,7 @@ export const FileUpload: React.FC<Props> = () => {
           {!fileDetails && (
             <Button variant="contained" component="label" color="primary">
               {" "}
-              <AddIcon /> Upload a file
+              <AddIcon /> Select CSV
               <input type="file" hidden onChange={setFile} />
             </Button>
           )}

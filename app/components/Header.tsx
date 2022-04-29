@@ -15,7 +15,6 @@ import MenuItem from '@mui/material/MenuItem';
 // import { Link } from '@remix-run/react';
 import Link from '@mui/material/Link';
 
-const pages = ['Explore', 'Contribute', 'About'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export const Header = () => {
@@ -83,7 +82,19 @@ export const Header = () => {
                 <Typography textAlign="center">Explore</Typography>
               </MenuItem>
               <MenuItem>
-                <Link href={'/contribute'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Contribute</Typography></Link>
+                <Link href={'/contribute'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Predict SOC</Typography></Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href={'/underconstruction'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>About</Typography></Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href={'/underconstruction'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Commercial</Typography></Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href={'/underconstruction'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Documentation</Typography></Link>
+              </MenuItem>
+              <MenuItem>
+                <Link href={'https://github.com/Nostin/diser'} sx={{ textDecoration: 'none'}}><Typography textAlign="center" sx={{ color: 'black' }}>Contribute</Typography></Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">About</Typography>
@@ -103,7 +114,16 @@ export const Header = () => {
               <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Explore</Typography>
             </Link>
             <Link href={'/contribute'} component={Button}>
-              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Contribute</Typography>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Predict SOC</Typography>
+            </Link>
+            <Link href={'/underconstruction'} component={Button}>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">About</Typography>
+            </Link>
+            <Link href={'/underconstruction'} component={Button}>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Commercial</Typography>
+            </Link>
+            <Link href={'/underconstruction'} component={Button}>
+              <Typography sx={{ color: 'white', fontSize: '14px', fontWeight: 500}} textAlign="center">Documentation</Typography>
             </Link>
             <Button
               onClick={handleCloseNavMenu}
